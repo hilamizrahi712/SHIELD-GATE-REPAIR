@@ -81,10 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---- Brands carousel (infinite auto-scroll) ---- */
+  /* ---- Brands carousel (infinite auto-scroll + arrows + swipe) ---- */
   var track = document.querySelector('.brands-carousel-track');
   if (track) {
-    // Clone all children for infinite loop
     var origItems = Array.prototype.slice.call(track.children);
     origItems.forEach(function(item) {
       var clone = item.cloneNode(true);
@@ -95,12 +94,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var speed = 0.6;
     var halfWidth = 0;
     var animId;
+    var pauseTimer = null;
+    var isPaused = false;
 
     function getHalfWidth() {
-      // Width of the original (un-cloned) items
       var total = 0;
       for (var i = 0; i < origItems.length; i++) {
-        total += origItems[i].offsetWidth + 24; // 24 = gap
+        total += origItems[i].offsetWidth + 24;
       }
       return total;
     }
@@ -113,9 +113,51 @@ document.addEventListener('DOMContentLoaded', function () {
       animId = requestAnimationFrame(tick);
     }
 
-    // Pause on hover
-    track.parentElement.addEventListener('mouseenter', function() { cancelAnimationFrame(animId); });
-    track.parentElement.addEventListener('mouseleave', function() { animId = requestAnimationFrame(tick); });
+    function pauseFor(ms) {
+      isPaused = true;
+      cancelAnimationFrame(animId);
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(function() {
+        isPaused = false;
+        animId = requestAnimationFrame(tick);
+      }, ms);
+    }
+
+    function stepBy(delta) {
+      if (!halfWidth) halfWidth = getHalfWidth();
+      var itemW = origItems.length > 0 ? origItems[0].offsetWidth + 24 : 164;
+      pos -= delta * itemW;
+      if (pos > 0) pos = -(halfWidth - itemW);
+      if (Math.abs(pos) >= halfWidth) pos = 0;
+      track.style.transform = 'translateX(' + pos + 'px)';
+      pauseFor(3000);
+    }
+
+    /* Arrow buttons */
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+    if (prevBtn) prevBtn.addEventListener('click', function() { stepBy(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { stepBy(1); });
+
+    /* Hover pause */
+    var outer = document.getElementById('brandsCarouselOuter') || track.parentElement;
+    outer.addEventListener('mouseenter', function() { if (!isPaused) cancelAnimationFrame(animId); });
+    outer.addEventListener('mouseleave', function() { if (!isPaused) animId = requestAnimationFrame(tick); });
+
+    /* Touch swipe */
+    var touchStartX = 0;
+    outer.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+      cancelAnimationFrame(animId);
+    }, { passive: true });
+    outer.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) {
+        stepBy(dx < 0 ? 1 : -1);
+      } else {
+        if (!isPaused) animId = requestAnimationFrame(tick);
+      }
+    }, { passive: true });
 
     animId = requestAnimationFrame(tick);
   }
@@ -148,5 +190,25 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+  /* ---- Task 7: Call button ring animation (every 30 seconds) ---- */
+  function ringCallButtons() {
+    /* Ring all tel: anchor buttons that are visible CTAs */
+    document.querySelectorAll(
+      '.btn-primary[href^="tel:"], .nav-cta[href^="tel:"], .mbb-call, .cta-phone-big, .sidebar-phone, .footer-phone'
+    ).forEach(function(el) {
+      el.classList.remove('is-ringing');
+      /* Force reflow so animation restarts */
+      void el.offsetWidth;
+      el.classList.add('is-ringing');
+      setTimeout(function() { el.classList.remove('is-ringing'); }, 1200);
+    });
+  }
+
+  /* First ring after 8 seconds, then every 30 seconds */
+  setTimeout(function loop() {
+    ringCallButtons();
+    setTimeout(loop, 30000);
+  }, 8000);
 
 });

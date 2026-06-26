@@ -5,7 +5,7 @@
 <title>Gate Repair in Mesquite, TX | Shield Gate Repair | (214) 735-4314</title>
 <meta name="description" content="Same-day gate repair in Mesquite, TX — electric, automatic & iron gate specialists near Town East Mall and Mesquite Pro Rodeo. Call (214) 735-4314.">
 <link rel="canonical" href="https://shieldgaterepair.com/cities/mesquite-gate-repair.html">
-<link rel="stylesheet" href="../css/style.css?v=4">
+<link rel="stylesheet" href="../css/style.css?v=5">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Shield Gate Repair","telephone":"+12147354314","areaServed":"Mesquite, TX","description":"Gate repair in Mesquite, TX"}</script>
 </head>
 <body>
@@ -53,6 +53,27 @@
     </div>
   </div>
 </section>
+
+<section class="section section-alt" style="padding:50px 0 0">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Local Service</span>
+      <h2>Gate Repair in Mesquite</h2>
+    </div>
+  </div>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <div id="city-map-mesquite" style="width:100%;height:360px"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEk=" crossorigin=""></script>
+  <script>
+  (function(){
+    var map=L.map('city-map-mesquite',{scrollWheelZoom:false,zoomControl:true}).setView([32.7673,-96.5994],13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    var icon=L.divIcon({html:'<div style="width:56px;height:56px;border-radius:50%;background:#fff;padding:4px;box-shadow:0 3px 14px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center"><img src="../images/brands/shield-logo.jpeg" style="width:48px;height:48px;border-radius:50%;object-fit:contain"></div>',iconSize:[56,56],iconAnchor:[28,28],className:''});
+    L.marker([32.7673,-96.5994],{icon:icon}).addTo(map).bindPopup('<strong>Shield Gate Repair — Mesquite</strong><br><a href="tel:+12147354314">(214) 735-4314</a>');
+  })();
+  </script>
+</section>
+
 
 
 <!-- INSERT VIDEO: city-page -->
@@ -134,7 +155,8 @@
     <div class="footer-col"><img src="../images/brands/shield-logo.jpeg" alt="Shield Gate Repair" class="footer-logo" loading="lazy" width="180" height="49"><p>Dallas-Fort Worth's trusted gate repair specialists.</p><a href="tel:+12147354314" class="footer-phone">+1 (214) 735-4314</a></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="../services/electric-gate-repair.html">Electric Gate Repair</a></li><li><a href="../services/automatic-gate-repair.html">Automatic Gate Repair</a></li><li><a href="../services/gate-motor-repair.html">Gate Motor Repair</a></li><li><a href="../services/iron-gate-repair.html">Iron Gate Repair</a></li><li><a href="../services/emergency-gate-repair.html">Emergency Gate Repair</a></li><li><a href="../services/commercial-gate-repair.html">Commercial Gate Repair</a></li></ul></div>
     <div class="footer-col"><h4>Nearby Cities</h4><ul><li><a href="dallas-gate-repair.html">Dallas</a></li><li><a href="garland-gate-repair.html">Garland</a></li><li><a href="rowlett-gate-repair.html">Rowlett</a></li><li><a href="richardson-gate-repair.html">Richardson</a></li><li><a href="../contact.html">All Cities &#8594;</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><p><span class="ph"></span> <a href="tel:+12147354314" style="color:var(--gold)">+1 (214) 735-4314</a></p><p>&#128205; Mesquite, TX</p><p>&#8987; Sun–Fri 7am–9pm</p><p>&#128680; 24/7 Emergency</p></div>
+    <div class="footer-col"><h4>Contact</h4><p><span class="ph"></span> <a href="tel:+12147354314" style="color:var(--gold)">+1 (214) 735-4314</a></p><p>&#128205; Mesquite, TX</p><p>&#8987; Sun–Fri 7am–9pm</p><p>&#128680; 24/7 Emergency</p>
+        <p><a href="sms:+12147354314" class="btn-text-us">&#128172; Text Us</a></p></div>
   </div></div>
   <div class="footer-bottom"><div class="container"><p>&copy; 2024 Shield Gate Repair. All rights reserved.</p><p><a href="../about.html">About</a><a href="../gallery.html">Gallery</a><a href="../contact.html">Contact</a><a href="../sitemap.xml">Sitemap</a></p></div></div>
 </footer>

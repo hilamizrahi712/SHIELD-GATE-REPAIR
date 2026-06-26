@@ -6,7 +6,7 @@
 <title>Gate Repair in Plano, TX | Shield Gate Repair | (214) 735-4314</title>
 <meta name="description" content="Gate repair in Plano, TX. Same-day service near Legacy West, Willow Bend &amp; corporate campuses. Electric, automatic &amp; iron gates. Call (214) 735-4314.">
 <link rel="canonical" href="https://shieldgaterepair.com/cities/plano-gate-repair.html">
-<link rel="stylesheet" href="../css/style.css?v=4">
+<link rel="stylesheet" href="../css/style.css?v=5">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Shield Gate Repair","telephone":"+12147354314","address":{"@type":"PostalAddress","addressLocality":"Plano","addressRegion":"TX","addressCountry":"US"},"areaServed":"Plano, TX","description":"Gate repair in Plano, TX"}
 </script>
@@ -66,6 +66,27 @@
     </div>
   </div>
 </section>
+
+<section class="section section-alt" style="padding:50px 0 0">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Local Service</span>
+      <h2>Gate Repair in Plano</h2>
+    </div>
+  </div>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <div id="city-map-plano" style="width:100%;height:360px"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEk=" crossorigin=""></script>
+  <script>
+  (function(){
+    var map=L.map('city-map-plano',{scrollWheelZoom:false,zoomControl:true}).setView([33.0198,-96.6989],13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    var icon=L.divIcon({html:'<div style="width:56px;height:56px;border-radius:50%;background:#fff;padding:4px;box-shadow:0 3px 14px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center"><img src="../images/brands/shield-logo.jpeg" style="width:48px;height:48px;border-radius:50%;object-fit:contain"></div>',iconSize:[56,56],iconAnchor:[28,28],className:''});
+    L.marker([33.0198,-96.6989],{icon:icon}).addTo(map).bindPopup('<strong>Shield Gate Repair — Plano</strong><br><a href="tel:+12147354314">(214) 735-4314</a>');
+  })();
+  </script>
+</section>
+
 
 
 <!-- INSERT VIDEO: city-page -->
@@ -162,7 +183,8 @@
   <div class="footer-main"><div class="container footer-grid">
     <div class="footer-col"><img src="../images/brands/shield-logo.jpeg" alt="Shield Gate Repair" class="footer-logo" loading="lazy" width="180" height="49"><p>Dallas-Fort Worth's trusted gate repair specialists. Licensed, insured, same-day service.</p><a href="tel:+12147354314" class="footer-phone">+1 (214) 735-4314</a></div>
     <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="dallas-gate-repair.html">Dallas</a></li><li><a href="fort-worth-gate-repair.html">Fort Worth</a></li><li><a href="frisco-gate-repair.html">Frisco</a></li><li><a href="plano-gate-repair.html">Plano</a></li><li><a href="arlington-gate-repair.html">Arlington</a></li><li><a href="mckinney-gate-repair.html">McKinney</a></li><li><a href="southlake-gate-repair.html">Southlake</a></li><li><a href="../contact.html">All Cities &#8594;</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><p><span class="ph"></span> <a href="tel:+12147354314" style="color:var(--gold)">+1 (214) 735-4314</a></p><p>&#128205; Dallas-Fort Worth, TX</p><p>&#8987; Sun–Fri 7am–9pm</p><p>&#128680; 24/7 Emergency</p></div>
+    <div class="footer-col"><h4>Contact</h4><p><span class="ph"></span> <a href="tel:+12147354314" style="color:var(--gold)">+1 (214) 735-4314</a></p><p>&#128205; Dallas-Fort Worth, TX</p><p>&#8987; Sun–Fri 7am–9pm</p><p>&#128680; 24/7 Emergency</p>
+        <p><a href="sms:+12147354314" class="btn-text-us">&#128172; Text Us</a></p></div>
   </div></div>
   <div class="footer-bottom"><div class="container"><p>&copy; 2024 Shield Gate Repair. All rights reserved.</p><p><a href="../about.html">About</a><a href="../gallery.html">Gallery</a><a href="../contact.html">Contact</a><a href="../sitemap.xml">Sitemap</a></p></div></div>
 </footer>

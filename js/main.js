@@ -208,4 +208,35 @@ document.addEventListener('DOMContentLoaded', function () {
     triggerRing(document.querySelectorAll('.mbb-call'));
   }, 10000);
 
+
+/* ---- Lazy-load map iframes via Intersection Observer ---- */
+(function() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.map-wrapper').forEach(function(w) {
+      var iframe = document.createElement('iframe');
+      iframe.src = w.dataset.src;
+      iframe.style.cssText = 'width:100%;height:100%;min-height:360px;border:0;display:block';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      w.appendChild(iframe);
+    });
+    return;
+  }
+  var mapObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var w = entry.target;
+      var iframe = document.createElement('iframe');
+      iframe.src = w.dataset.src;
+      iframe.style.cssText = 'width:100%;height:100%;min-height:360px;border:0;display:block';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.allowFullscreen = true;
+      w.appendChild(iframe);
+      mapObs.unobserve(w);
+    });
+  }, { rootMargin: '200px' });
+  document.querySelectorAll('.map-wrapper').forEach(function(el) { mapObs.observe(el); });
+})();
+
 });

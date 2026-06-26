@@ -6,7 +6,7 @@
 <title>Gate Repair Dallas-Fort Worth | Shield Gate Repair | +1 (214) 735-4314</title>
 <meta name="description" content="Shield Gate Repair — DFW's #1 gate repair specialists. Same-day service for electric, automatic & iron gates. Serving all 33 DFW cities. Call +1 (214) 735-4314.">
 <link rel="canonical" href="https://shieldgaterepair.com/">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -249,27 +249,21 @@
       <h2>Serving All of Dallas-Fort Worth</h2>
     </div>
   </div>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <div id="dfw-service-map" style="width:100%;height:420px"></div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEk=" crossorigin=""></script>
-  <script>
-  (function(){
-    var map = L.map('dfw-service-map',{scrollWheelZoom:false,dragging:true,zoomControl:true}).setView([32.82,-97.10],10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-    var boundary = [
-      [33.28,-97.90],[33.30,-97.25],[33.30,-96.52],[32.85,-96.45],
-      [32.65,-96.48],[32.48,-96.80],[32.38,-97.15],[32.40,-97.50],
-      [32.50,-97.90],[33.28,-97.90]
-    ];
-    L.polygon(boundary,{color:'#C9A84C',weight:2.5,fillColor:'#0A1931',fillOpacity:0.18}).addTo(map);
-    var icon = L.divIcon({
-      html:'<div style="width:72px;height:72px;border-radius:50%;background:#fff;padding:5px;box-shadow:0 4px 18px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center"><img src="images/brands/shield-logo.jpeg" style="width:62px;height:62px;border-radius:50%;object-fit:contain"></div>',
-      iconSize:[72,72],iconAnchor:[36,36],className:''
-    });
-    L.marker([32.82,-97.10],{icon:icon}).addTo(map).bindPopup('<strong>Shield Gate Repair</strong><br>Serving all of DFW<br><a href="tel:+12147354314">(214) 735-4314</a>');
-  })();
-  </script>
-</section>
+  <div style="position:relative;width:100%;height:420px;overflow:hidden">
+    <iframe
+      src="https://maps.google.com/maps?q=32.7767,-97.2845&z=10&output=embed&language=en&region=US"
+      width="100%" height="100%"
+      style="border:0;display:block" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Shield Gate Repair service area — Dallas-Fort Worth"
+      aria-label="Map of Dallas-Fort Worth service area">
+    </iframe>
+    <img
+      src="images/brands/shield-logo.jpeg"
+      alt="Shield Gate Repair"
+      style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;object-fit:contain;border-radius:50%;background:#fff;padding:6px;box-shadow:0 4px 20px rgba(0,0,0,0.5);pointer-events:none">
+  </div>
+  </section>
 
 <!-- WHY SHIELD — 3+2 layout -->
 <section class="section section-dark why-section">

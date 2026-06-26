@@ -36,6 +36,12 @@
 .brand-grid-card span{font-size:.85rem;font-weight:700;color:var(--navy);letter-spacing:.5px}
 @media(max-width:768px){.carousel-arrow{display:none}.brands-page-grid{grid-template-columns:repeat(2,1fr)}}
 
+/* ── Brand mini gallery ── */
+.brand-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 0}
+.brand-gallery-item{aspect-ratio:1/1}
+.brand-gallery-item:hover{box-shadow:0 0 0 3px var(--gold)}
+@media(max-width:768px){.brand-gallery-grid{grid-template-columns:repeat(2,1fr)}}
+
 /* ── City sidebar form (replaces cta-sidebar) ── */
 .city-sidebar-form input,.city-sidebar-form textarea{width:100%;padding:10px 14px;border:1.5px solid rgba(255,255,255,.2);border-radius:var(--radius);font-size:.88rem;font-family:inherit;background:rgba(255,255,255,.08);color:var(--white);margin-bottom:11px;display:block;box-sizing:border-box}
 .city-sidebar-form input::placeholder,.city-sidebar-form textarea::placeholder{color:rgba(255,255,255,.38)}

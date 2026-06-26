@@ -208,22 +208,4 @@ document.addEventListener('DOMContentLoaded', function () {
     triggerRing(document.querySelectorAll('.mbb-call'));
   }, 10000);
 
-
-/* ---- Click-to-load map iframes (zero resources until user clicks) ---- */
-document.querySelectorAll('.map-wrapper').forEach(function(w) {
-  var pin = document.createElement('div');
-  pin.className = 'map-placeholder';
-  pin.innerHTML = '<span class="map-pin">&#128205;</span><p>Interactive Map</p><button class="map-load-btn">Load Map</button>';
-  w.appendChild(pin);
-  pin.querySelector('.map-load-btn').addEventListener('click', function() {
-    var iframe = document.createElement('iframe');
-    iframe.src = w.dataset.src;
-    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block';
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    w.innerHTML = '';
-    w.appendChild(iframe);
-  });
-});
-
 });

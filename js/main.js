@@ -191,24 +191,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- Task 7: Call button ring animation (every 30 seconds) ---- */
-  function ringCallButtons() {
-    /* Ring all tel: anchor buttons that are visible CTAs */
-    document.querySelectorAll(
-      '.btn-primary[href^="tel:"], .nav-cta[href^="tel:"], .mbb-call, .cta-phone-big, .sidebar-phone, .footer-phone'
-    ).forEach(function(el) {
-      el.classList.remove('is-ringing');
-      /* Force reflow so animation restarts */
-      void el.offsetWidth;
-      el.classList.add('is-ringing');
-      setTimeout(function() { el.classList.remove('is-ringing'); }, 1200);
+  /* ---- Ring animation on call buttons every 10 seconds ---- */
+  setInterval(function() {
+    document.querySelectorAll('.call-btn, .floating-call, [href^="tel"]').forEach(function(btn) {
+      btn.style.animation = 'none';
+      void btn.offsetHeight;
+      btn.style.animation = 'ring 0.6s ease-in-out';
     });
-  }
-
-  /* First ring after 8 seconds, then every 30 seconds */
-  setTimeout(function loop() {
-    ringCallButtons();
-    setTimeout(loop, 30000);
-  }, 8000);
+  }, 10000);
 
 });

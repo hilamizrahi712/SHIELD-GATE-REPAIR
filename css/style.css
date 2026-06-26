@@ -48,7 +48,10 @@
 .city-sidebar-form input:focus,.city-sidebar-form textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.12)}
 .city-sidebar-form textarea{resize:vertical;min-height:70px}
 
-/* ── Lazy map wrapper ── */
-.map-wrapper{width:100%;height:100%;min-height:360px;background:var(--off-white);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.map-wrapper::before{content:'Loading map\2026';color:var(--gray);font-size:.88rem;font-family:inherit}
-.map-wrapper iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+/* ── Click-to-load map wrapper ── */
+.map-wrapper{position:relative;width:100%;height:100%;min-height:360px;background:var(--off-white);overflow:hidden}
+.map-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--off-white)}
+.map-pin{font-size:2.2rem;line-height:1}
+.map-placeholder p{color:var(--gray);font-size:.88rem;font-weight:600;margin:0}
+.map-load-btn{background:var(--gold);color:var(--navy);border:none;padding:10px 24px;border-radius:var(--radius);font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:background var(--transition)}
+.map-load-btn:hover{background:var(--gold-dark)}

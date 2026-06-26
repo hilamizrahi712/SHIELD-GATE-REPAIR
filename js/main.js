@@ -209,34 +209,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 10000);
 
 
-/* ---- Lazy-load map iframes via Intersection Observer ---- */
-(function() {
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.map-wrapper').forEach(function(w) {
-      var iframe = document.createElement('iframe');
-      iframe.src = w.dataset.src;
-      iframe.style.cssText = 'width:100%;height:100%;min-height:360px;border:0;display:block';
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      w.appendChild(iframe);
-    });
-    return;
-  }
-  var mapObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var w = entry.target;
-      var iframe = document.createElement('iframe');
-      iframe.src = w.dataset.src;
-      iframe.style.cssText = 'width:100%;height:100%;min-height:360px;border:0;display:block';
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      iframe.allowFullscreen = true;
-      w.appendChild(iframe);
-      mapObs.unobserve(w);
-    });
-  }, { rootMargin: '200px' });
-  document.querySelectorAll('.map-wrapper').forEach(function(el) { mapObs.observe(el); });
-})();
+/* ---- Click-to-load map iframes (zero resources until user clicks) ---- */
+document.querySelectorAll('.map-wrapper').forEach(function(w) {
+  var pin = document.createElement('div');
+  pin.className = 'map-placeholder';
+  pin.innerHTML = '<span class="map-pin">&#128205;</span><p>Interactive Map</p><button class="map-load-btn">Load Map</button>';
+  w.appendChild(pin);
+  pin.querySelector('.map-load-btn').addEventListener('click', function() {
+    var iframe = document.createElement('iframe');
+    iframe.src = w.dataset.src;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    w.innerHTML = '';
+    w.appendChild(iframe);
+  });
+});
 
 });

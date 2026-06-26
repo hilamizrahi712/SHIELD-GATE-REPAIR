@@ -191,13 +191,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- Ring animation on call buttons every 10 seconds ---- */
-  setInterval(function() {
-    document.querySelectorAll('.call-btn, .floating-call, [href^="tel"]').forEach(function(btn) {
+  /* ---- Ring animation: regular call buttons every 5s, mobile bar every 10s ---- */
+  function triggerRing(els) {
+    els.forEach(function(btn) {
       btn.style.animation = 'none';
       void btn.offsetHeight;
       btn.style.animation = 'ring 0.6s ease-in-out';
     });
+  }
+
+  setInterval(function() {
+    triggerRing(document.querySelectorAll('[href^="tel"]:not(.mbb-call)'));
+  }, 5000);
+
+  setInterval(function() {
+    triggerRing(document.querySelectorAll('.mbb-call'));
   }, 10000);
 
 });

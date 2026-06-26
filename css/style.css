@@ -6,8 +6,8 @@
 .dropdown-wide{columns:2;min-width:400px}
 /* ── Mobile bottom bar — global default: hidden ── */
 .mobile-bottom-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:1001;flex-direction:row;box-shadow:0 -4px 24px rgba(7,16,37,.45);border-top:2px solid rgba(201,168,76,.35)}
-.mobile-bottom-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:16px 10px;font-weight:800;font-size:.88rem;text-decoration:none;line-height:1.2;text-align:center;text-transform:uppercase;letter-spacing:.6px;background:var(--navy);color:var(--gold)!important;transition:background .2s}
-.mobile-bottom-bar a:hover,.mobile-bottom-bar a:active{background:var(--navy-dark);color:var(--gold-light)!important}
+.mobile-bottom-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:16px 10px;font-weight:800;font-size:.88rem;text-decoration:none;line-height:1.2;text-align:center;text-transform:uppercase;letter-spacing:.6px;background:var(--navy);color:var(--gold);transition:background .2s}
+.mobile-bottom-bar a:hover,.mobile-bottom-bar a:active{background:var(--navy-dark);color:var(--gold-light)}
 .mobile-bottom-bar a+a{border-left:1px solid rgba(201,168,76,.3)}
 /* ── Mobile bottom bar — show on mobile only ── */
 @media (max-width:768px){.mobile-bottom-bar{display:flex}body{padding-bottom:64px}}

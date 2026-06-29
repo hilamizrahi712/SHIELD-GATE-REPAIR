@@ -66,3 +66,7 @@
 .actuator-section .why-card{background:var(--white)!important;border:1px solid var(--border)!important}
 .actuator-section .why-card h3{color:var(--navy)!important}
 .actuator-section .why-card p{color:var(--text-body)!important}
+
+/* ── Fix: Service Areas nav item — plain link, never a gold button ── */
+.nav-menu>li.has-dropdown>a{background:transparent;color:var(--navy)}
+.nav-menu>li.has-dropdown>a:hover{background:rgba(13,27,62,.07);color:var(--gold-dark)}
